@@ -10,15 +10,60 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 80px 24px;
+  min-height: 460px;
+  overflow: hidden;
+  color: var(--background-color);
+}
+
+/* readability overlay over the background image */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 35%) 0%, rgb(0 0 0 / 55%) 100%);
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 16ch;
+  margin: 0 auto 0.3em;
   color: var(--background-color);
+  font-size: clamp(2.5rem, 6vw, var(--heading-font-size-xxl));
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+}
+
+.hero h2 {
+  max-width: 24ch;
+  margin: 0.6em auto 0.3em;
+  color: var(--background-color);
+  text-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+}
+
+.hero p {
+  max-width: 52ch;
+  margin: 0 auto 0.6em;
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 35%);
+}
+
+.hero a:any-link {
+  color: var(--background-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero a:hover {
+  color: var(--light-color);
 }
 
 .hero picture {
@@ -37,6 +82,7 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 96px 32px;
+    min-height: 520px;
   }
 }
